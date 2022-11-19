@@ -41,4 +41,10 @@ public class PersonService {
 
         return repository.save(p);
     }
+
+    public void delete(Long id){
+        Person p = repository.findById(id).orElseThrow(()-> new ResourceNotFoundException(("Person not found")));
+
+        repository.delete(p);
+    }
 }

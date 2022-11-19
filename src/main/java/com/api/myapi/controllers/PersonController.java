@@ -3,6 +3,7 @@ package com.api.myapi.controllers;
 import com.api.myapi.models.Person;
 import com.api.myapi.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,5 +33,11 @@ public class PersonController {
     @PutMapping
     public Person update(@RequestBody Person person){
         return service.update(person);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<?> delete(@PathVariable(value = "id") Long id){
+        service.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }
