@@ -41,11 +41,7 @@ public class PersonService {
         entity.setName(person.getName());
         entity.setSex(person.getSex());
         entity.setHeight(person.getHeight());
-        entity.getAddress().setRoad(person.getAddress().getRoad());
-        entity.getAddress().setNumber(person.getAddress().getNumber());
-        entity.getAddress().setDistrict(person.getAddress().getDistrict());
-        entity.getAddress().setCity(person.getAddress().getCity());
-        entity.getAddress().setCountry(person.getAddress().getCountry());
+        entity.getAddress().setId(person.getAddress().getId());
 
         PersonVO vo = DozerMapper.parseObject(repository.save(entity), PersonVO.class);
 
